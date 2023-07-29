@@ -31,7 +31,7 @@ format:
 	python format.py
 
 bubblesort_test:
-	$(CC) ./algorithms/bubblesort/int8_bubblesort.c ./algorithms/bubblesort/int16_bubblesort.c ./algorithms/bubblesort/int32_bubblesort.c ./algorithms/bubblesort/int64_bubblesort.c ./algorithms/bubblesort/gen_bubblesort.c ./tests/bubblesort_test.c $(CFLAGS) -o $(TARGET_BUBBLESORT_TEST)
+	$(CC) ./algorithms/bubblesort/gen_bubblesort.c ./tests/bubblesort_test.c $(CFLAGS) -o $(TARGET_BUBBLESORT_TEST)
 
 $(OBJDIR):
 	$(foreach dir, $(DIRS), $(shell mkdir -p $(OBJDIR)/$(dir)))

@@ -47,6 +47,18 @@ int int64_compare(int64_t a, int64_t b)
     return a - b;
 }
 
+int float_compare(float a, float b)
+{
+    float diff = a - b;
+    return diff < 0 ? -1 : diff > 0 ? 1 : 0;
+}
+
+int double_compare(double a, double b)
+{
+    double diff = a - b;
+    return diff < 0 ? -1 : diff > 0 ? 1 : 0;
+}
+
 int tuple_compare_int(const void *a, const void *b)
 {
     return ((struct tuple_t *)a)->a - ((struct tuple_t *)b)->a;
@@ -60,6 +72,8 @@ int main(void)
     int16_t arr_16[20];
     int32_t arr_32[20];
     int64_t arr_64[20];
+    float arr_float[20];
+    double arr_double[20];
     struct tuple_t arr_tuple[20];
 
     for (int i = 0; i < 20; i++) {
@@ -67,6 +81,8 @@ int main(void)
 	arr_16[i] = rand() % INT16_MAX;
 	arr_32[i] = rand() % INT16_MAX;
 	arr_64[i] = rand() % INT16_MAX;
+    arr_float[i] = (float)rand() / (float)(RAND_MAX / INT16_MAX);
+    arr_double[i] = (double)rand() / (double)(RAND_MAX / INT16_MAX);
 	arr_tuple[i].a = rand() % INT16_MAX;
 	arr_tuple[i].b = (float)rand() / (float)(RAND_MAX / INT16_MAX);
     }
@@ -96,6 +112,20 @@ int main(void)
     BUBBLESORT(arr_64, arr_64 + 19, int64_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%ld ", arr_64[i]);
+    }
+    printf("\n");
+
+    printf("Testing for float:\n");
+    BUBBLESORT(arr_float, arr_float + 19, float_compare);
+    for (int i = 0; i < 20; i++) {
+    printf("%.2f ", arr_float[i]);
+    }
+    printf("\n");
+
+    printf("Testing for double:\n");
+    BUBBLESORT(arr_double, arr_double + 19, double_compare);
+    for (int i = 0; i < 20; i++) {
+    printf("%.2f ", arr_double[i]);
     }
     printf("\n");
 

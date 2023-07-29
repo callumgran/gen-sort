@@ -15,13 +15,24 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef INT32_BUBBLESORT_H
-#define INT32_BUBBLESORT_H
+#ifndef BASE_NUMERIC_SORTING_COMMON_H
+#define BASE_NUMERIC_SORTING_COMMON_H
 
-#include "../commons/int32_common.h"
-#include <stdint.h>
-#include <stdlib.h>
+#define SWAP(type, a, b)          \
+    do {                          \
+	register type tmp = *(a); \
+	*(a) = *(b);              \
+	*(b) = (tmp);             \
+    } while (0)
 
-void bubblesort_int32(int32_t *base, int32_t *bound, int32_compare_fn_t cmp);
+#define ROTATE(type, a, b, c)      \
+    do {                           \
+	register(type) tmp = *(a); \
+	*(a) = *(b);               \
+	*(b) = *(c);               \
+	*(c) = (tmp);              \
+    } while (0)
 
-#endif // INT32_BUBBLESORT_H
+#define INIT_COMPARE_FN(type, name) typedef int name##_compare_fn_t(type a, type b)
+
+#endif // BASE_NUMERIC_SORTING_COMMON_H
