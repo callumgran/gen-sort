@@ -20,8 +20,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "benchmark_commons.h"
 #include "../algorithms/quicksort/quicksort.h"
+#include "benchmark_commons.h"
 
 #define SIZE (10000000)
 
@@ -39,11 +39,11 @@ double generic_sort_with_time_ret(int *data)
 {
     struct timespec start, end;
     double elapsed = 0;
-	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-	quicksort_generic(data, data + SIZE - 1, sizeof(int32_t), cmp2);
-	clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-	elapsed += (end.tv_sec - start.tv_sec);
-	elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+    quicksort_generic(data, data + SIZE - 1, sizeof(int32_t), cmp2);
+    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+    elapsed += (end.tv_sec - start.tv_sec);
+    elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
     elapsed *= 1000;
     return elapsed;
 }
@@ -52,11 +52,11 @@ double specified_sort_with_time_ret(int *data)
 {
     struct timespec start, end;
     double elapsed = 0;
-	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-	QUICKSORT(data, data + SIZE - 1, cmp);
-	clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-	elapsed += (end.tv_sec - start.tv_sec);
-	elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+    QUICKSORT(data, data + SIZE - 1, cmp);
+    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+    elapsed += (end.tv_sec - start.tv_sec);
+    elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
     elapsed *= 1000;
     return elapsed;
 }
@@ -65,11 +65,11 @@ double qsort_with_time_ret(int *data)
 {
     struct timespec start, end;
     double elapsed = 0;
-	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-	qsort(data, SIZE, sizeof(int), cmp2);
-	clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-	elapsed += (end.tv_sec - start.tv_sec);
-	elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+    qsort(data, SIZE, sizeof(int), cmp2);
+    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+    elapsed += (end.tv_sec - start.tv_sec);
+    elapsed += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
     elapsed *= 1000;
     return elapsed;
 }
@@ -86,18 +86,17 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Random Numbers: %d million. \n\n", SIZE / 1000000);
 
-    for (int i = 0; i < 10; i++)
-    {
-        fill_random(data, SIZE);
+    for (int i = 0; i < 10; i++) {
+	fill_random(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
     elapsed_generic /= 10;
     elapsed_specific /= 10;
@@ -114,16 +113,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Sqrt(%d) range Numbers: %d million. \n\n", SIZE, SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_sqrt(data, SIZE);
+	fill_sqrt(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
     elapsed_generic /= 10;
     elapsed_specific /= 10;
@@ -140,16 +139,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("10 %% of %d range Numbers: %d million. \n\n", SIZE, SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_10_percent(data, SIZE);
+	fill_10_percent(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
 
     elapsed_generic /= 10;
@@ -167,16 +166,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Sorted Numbers: %d million. \n\n", SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_sorted(data, SIZE);
+	fill_sorted(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
 
     elapsed_generic /= 10;
@@ -194,16 +193,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Reverse sorted Numbers: %d million. \n\n", SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_reverse_sorted(data, SIZE);
+	fill_reverse_sorted(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
 
     elapsed_generic /= 10;
@@ -221,16 +220,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Half random Numbers: %d million. \n\n", SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_half_random(data, SIZE);
+	fill_half_random(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
 
     elapsed_generic /= 10;
@@ -248,16 +247,16 @@ int main()
     printf("--------------------------------------------------------\n");
     printf("Low range Numbers: %d million. \n\n", SIZE / 1000000);
     for (int i = 0; i < 10; i++) {
-        fill_small_range(data, SIZE);
+	fill_small_range(data, SIZE);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_generic += generic_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_generic += generic_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_specific += specified_sort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_specific += specified_sort_with_time_ret(copy_arr);
 
-        copy(data, copy_arr, SIZE);
-        elapsed_qsort += qsort_with_time_ret(copy_arr);
+	copy(data, copy_arr, SIZE);
+	elapsed_qsort += qsort_with_time_ret(copy_arr);
     }
 
     elapsed_generic /= 10;

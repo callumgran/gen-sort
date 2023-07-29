@@ -93,69 +93,69 @@ int main(void)
     QUICKSORT(arr_8, arr_8 + SIZE - 1, int8_compare);
     for (int i = 1; i < 50000; i++) {
 	if (arr_8[i] < arr_8[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for int16_t:\n");
     QUICKSORT(arr_16, arr_16 + SIZE - 1, int16_compare);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_16[i] < arr_16[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_16[i] < arr_16[i - 1]) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for int32_t:\n");
     QUICKSORT(arr_32, arr_32 + SIZE - 1, int32_compare);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_32[i] < arr_32[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_32[i] < arr_32[i - 1]) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for int64_t:\n");
     QUICKSORT(arr_64, arr_64 + SIZE - 1, int64_compare);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_64[i] < arr_64[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_64[i] < arr_64[i - 1]) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for float:\n");
     QUICKSORT(arr_float, arr_float + SIZE - 1, float_compare);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_float[i] < arr_float[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_float[i] < arr_float[i - 1]) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for double:\n");
     QUICKSORT(arr_double, arr_double + SIZE - 1, double_compare);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_double[i] < arr_double[i - 1]) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_double[i] < arr_double[i - 1]) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 
     printf("Testing for struct tuple_t:\n");
     QUICKSORT(arr_tuple, arr_tuple + SIZE - 1, tuple_compare_int);
     for (int i = 1; i < SIZE; i++) {
-        if (arr_tuple[i].a < arr_tuple[i - 1].a) {
-            printf("Failed at index %d\n", i);
-            break;
-        }
+	if (arr_tuple[i].a < arr_tuple[i - 1].a) {
+	    printf("Failed at index %d\n", i);
+	    break;
+	}
     }
     printf("\n");
 

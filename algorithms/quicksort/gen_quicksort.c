@@ -119,7 +119,7 @@ static uint8_t *median_five_of_fifteen(uint8_t *left, uint8_t *right, size_t siz
 static void dual_pivot_blockquicksort_rec(uint8_t *left, uint8_t *right, const size_t size,
 					  compare_fn_t cmp)
 {
-    const ptrdiff_t  diff = right - left;
+    const ptrdiff_t diff = right - left;
 
     if (right <= left)
 	return;
