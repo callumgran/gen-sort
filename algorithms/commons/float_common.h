@@ -20,16 +20,16 @@
 
 #include <stdint.h>
 
-#define FLOAT_SWAP(a, b)             \
-    do {                            \
+#define FLOAT_SWAP(a, b)           \
+    do {                           \
 	register float tmp = *(a); \
-	*(a) = *(b);                \
-	*(b) = (tmp);               \
+	*(a) = *(b);               \
+	*(b) = (tmp);              \
     } while (0)
 
-#define THREE_FLOAT_ROTATE(a, b, c)  \
+#define THREE_FLOAT_ROTATE(a, b, c) \
     do {                            \
-	register float tmp = *(a); \
+	register float tmp = *(a);  \
 	*(a) = *(b);                \
 	*(b) = *(c);                \
 	*(c) = (tmp);               \
