@@ -60,3 +60,6 @@ dkms.conf
 
 # Ignore binary files
 bubblesort_test
+insertionsort_test
+quicksort_test
+quicksort_benchmark

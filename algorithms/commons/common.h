@@ -71,8 +71,6 @@ INIT_PRIMITVE_COMPARE_FN(long double, long_double);
 
 #define FIND_THIRD(high, low, size) (size * (((high - low) / size) / 3))
 
-#define RUN_INSERTION(size) (27 * size)
-
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))

@@ -15,24 +15,14 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef BASE_NUMERIC_SORTING_COMMON_H
-#define BASE_NUMERIC_SORTING_COMMON_H
+#ifndef DPBLOCKSORT_H
+#define DPBLOCKSORT_H
 
-#define SWAP(type, a, b)          \
-    do {                          \
-	register type tmp = *(a); \
-	*(a) = *(b);              \
-	*(b) = (tmp);             \
-    } while (0)
+#define RUN_INSERTION(size) (27 * size)
+#define DP_BLOCK 256
 
-#define ROTATE(type, a, b, c)     \
-    do {                          \
-	register type tmp = *(a); \
-	*(a) = *(b);              \
-	*(b) = *(c);              \
-	*(c) = (tmp);             \
-    } while (0)
+#include "../commons/common.h"
 
-#define INIT_PRIMITVE_COMPARE_FN(type, name) typedef int name##_compare_fn_t(type a, type b)
+void quicksort_generic(const void *base, const void *bound, const size_t size, compare_fn_t cmp);
 
-#endif // BASE_NUMERIC_SORTING_COMMON_H
+#endif // DP_BLOCKSORT_H
