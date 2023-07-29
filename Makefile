@@ -17,9 +17,10 @@ CFLAGS = -Iinclude -Wall -Wextra -Wshadow -std=c11 -g
 
 .PHONY: format clean tags bear $(OBJDIR)
 TARGET_BUBBLESORT_TEST = bubblesort_test
+TARGET_INSERTIONSORT_TEST = insertionsort_test
 
 clean:
-	rm -rf $(OBJDIR) $(TARGET_BUBBLESORT_TEST)
+	rm -rf $(OBJDIR) $(TARGET_BUBBLESORT_TEST) $(TARGET_INSERTIONSORT_TEST)
 
 tags:
 	@ctags -R
@@ -32,6 +33,9 @@ format:
 
 bubblesort_test:
 	$(CC) ./algorithms/bubblesort/gen_bubblesort.c ./tests/bubblesort_test.c $(CFLAGS) -o $(TARGET_BUBBLESORT_TEST)
+
+insertionsort_test:
+	$(CC) ./algorithms/insertionsort/gen_insertionsort.c ./tests/insertionsort_test.c $(CFLAGS) -o $(TARGET_INSERTIONSORT_TEST)
 
 $(OBJDIR):
 	$(foreach dir, $(DIRS), $(shell mkdir -p $(OBJDIR)/$(dir)))

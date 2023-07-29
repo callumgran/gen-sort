@@ -22,6 +22,21 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "../commons/base_common.h"
+
+INIT_PRIMITVE_COMPARE_FN(int8_t, int8);
+INIT_PRIMITVE_COMPARE_FN(int16_t, int16);
+INIT_PRIMITVE_COMPARE_FN(int32_t, int32);
+INIT_PRIMITVE_COMPARE_FN(int64_t, int64);
+INIT_PRIMITVE_COMPARE_FN(uint8_t, uint8);
+INIT_PRIMITVE_COMPARE_FN(uint16_t, uint16);
+INIT_PRIMITVE_COMPARE_FN(uint32_t, uint32);
+INIT_PRIMITVE_COMPARE_FN(uint64_t, uint64);
+INIT_PRIMITVE_COMPARE_FN(float, float);
+INIT_PRIMITVE_COMPARE_FN(double, double);
+INIT_PRIMITVE_COMPARE_FN(long double, long_double);
+
+
 #define BYTE_SWAP(a, b, size)              \
     do {                                   \
 	size_t __size = (size);            \

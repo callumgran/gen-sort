@@ -22,8 +22,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define INIT_BUBBLESORT(type, name)                                          \
-    INIT_COMPARE_FN(type, name);                                             \
+#define INIT_PRIMITIVE_BUBBLESORT(type, name)                                \
     void bubblesort_##name(type *base, type *bound, name##_compare_fn_t cmp) \
     {                                                                        \
 	if (base == bound)                                                   \

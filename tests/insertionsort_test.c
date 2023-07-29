@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "../algorithms/bubblesort/bubblesort.h"
+#include "../algorithms/insertionsort/insertionsort.h"
 
 struct tuple_t {
     int32_t a;
@@ -88,49 +88,49 @@ int main(void)
     }
 
     printf("Testing for int8_t:\n");
-    BUBBLESORT(arr_8, arr_8 + 19, int8_compare);
+    INSERTIONSORT(arr_8, arr_8 + 19, int8_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%d ", arr_8[i]);
     }
     printf("\n");
 
     printf("Testing for int16_t:\n");
-    BUBBLESORT(arr_16, arr_16 + 19, int16_compare);
+    INSERTIONSORT(arr_16, arr_16 + 19, int16_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%d ", arr_16[i]);
     }
     printf("\n");
 
     printf("Testing for int32_t:\n");
-    BUBBLESORT(arr_32, arr_32 + 19, int32_compare);
+    INSERTIONSORT(arr_32, arr_32 + 19, int32_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%d ", arr_32[i]);
     }
     printf("\n");
 
     printf("Testing for int64_t:\n");
-    BUBBLESORT(arr_64, arr_64 + 19, int64_compare);
+    INSERTIONSORT(arr_64, arr_64 + 19, int64_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%ld ", arr_64[i]);
     }
     printf("\n");
 
     printf("Testing for float:\n");
-    BUBBLESORT(arr_float, arr_float + 19, float_compare);
+    INSERTIONSORT(arr_float, arr_float + 19, float_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%.2f ", arr_float[i]);
     }
     printf("\n");
 
     printf("Testing for double:\n");
-    BUBBLESORT(arr_double, arr_double + 19, double_compare);
+    INSERTIONSORT(arr_double, arr_double + 19, double_compare);
     for (int i = 0; i < 20; i++) {
 	printf("%.2f ", arr_double[i]);
     }
     printf("\n");
 
     printf("Testing for struct tuple_t:\n");
-    BUBBLESORT(arr_tuple, arr_tuple + 19, tuple_compare_int);
+    INSERTIONSORT(arr_tuple, arr_tuple + 19, tuple_compare_int);
     for (int i = 0; i < 20; i++) {
 	printf("%d ", arr_tuple[i].a);
     }

@@ -25,17 +25,17 @@
 #include "base_bubblesort.h"
 #include "gen_bubblesort.h"
 
-INIT_BUBBLESORT(int8_t, int8);
-INIT_BUBBLESORT(int16_t, int16);
-INIT_BUBBLESORT(int32_t, int32);
-INIT_BUBBLESORT(int64_t, int64);
-INIT_BUBBLESORT(uint8_t, uint8);
-INIT_BUBBLESORT(uint16_t, uint16);
-INIT_BUBBLESORT(uint32_t, uint32);
-INIT_BUBBLESORT(uint64_t, uint64);
-INIT_BUBBLESORT(double, double);
-INIT_BUBBLESORT(float, float);
-INIT_BUBBLESORT(long double, long_double);
+INIT_PRIMITIVE_BUBBLESORT(int8_t, int8);
+INIT_PRIMITIVE_BUBBLESORT(int16_t, int16);
+INIT_PRIMITIVE_BUBBLESORT(int32_t, int32);
+INIT_PRIMITIVE_BUBBLESORT(int64_t, int64);
+INIT_PRIMITIVE_BUBBLESORT(uint8_t, uint8);
+INIT_PRIMITIVE_BUBBLESORT(uint16_t, uint16);
+INIT_PRIMITIVE_BUBBLESORT(uint32_t, uint32);
+INIT_PRIMITIVE_BUBBLESORT(uint64_t, uint64);
+INIT_PRIMITIVE_BUBBLESORT(double, double);
+INIT_PRIMITIVE_BUBBLESORT(float, float);
+INIT_PRIMITIVE_BUBBLESORT(long double, long_double);
 
 #define CREATE_BUBBLESORT_WRAPPER(type, compare_fn, bubblesort_fn)                     \
     void bubblesort_fn##_wrapper(type *base, type *bound, size_t size, compare_fn cmp) \
